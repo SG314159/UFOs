@@ -10,7 +10,7 @@ var tbody =d3.select("tbody");
 // Clearing existing data because appending data from the 
 // array. Otherwise, the users will end up with pre-filtered data.
 // Standard way to clear data is tbody.html(""); which creates table with blank string
-function buildTable(data):{
+function buildTable(data){
     tbody.html("");
     data.forEach((dataRow) => {
         let row=tbody.append("tr"); // find <tbody> tag in HTML and add table row
@@ -22,5 +22,31 @@ function buildTable(data):{
             let cell=row.append("td"); // append data into a table data tag <td>
             cell.text(val);  // extract text of the value 
         });
-    });
-}
+    });   
+};
+
+// dealing with clicks from user; filters table each time filter button clicked
+function handleClick(){
+    // select elmt matching "datetime" id in the HTML tags (date value will be here)
+    // Chaining property("value") says D3 to grab date info and hold it in 'date' variable
+    let date=d3.select("#datetime").property("value");
+
+    // Set default filter & save to new variable. Default is original data.
+    let filteredData=tableData;
+    if (date) {
+        // Apply filter method to match datetime value selected
+        // Arrow fcn: show only rows where date equals date filter. The === tests for strict equality.
+        filteredData=filteredData.filter(row => row.datetime === date);
+    };
+
+    // Build the filtered table
+    buildTable(filteredData);
+};
+
+// Listen for the event of button clicked. Selector string "#filter-btn" is id for HTML tag.
+// .on( , ) tells D3 to execute handleClick fcn when button with that id is clicked.
+d3.selectAll("#filter-btn").on("click", handleClick);
+
+// Load table as soon as page loads. Allows user to see original table before filtering it.
+buildTable(tableData);
+
