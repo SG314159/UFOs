@@ -6,13 +6,13 @@ The purpose of this project was to create a webpage that could display UFO sight
 
 ## Results
 This webpage has the picture and paragraph at the top followed by the default listing of all data points in a table. 
-![webpage1](insert link to png here after uploading to GitHub)
+![webpage1](https://github.com/SG314159/UFOs/blob/main/static/images/Webpage1.PNG)
 
 If a user wishes to filter the data, the user types a date or other field into the search boxes on the left side. There is some default text shown in gray to give examples of the form for the user to use.
-![SearchBoxes](insert link to png here after uploading to GitHub)
+![SearchBoxes](https://github.com/SG314159/UFOs/blob/main/static/images/SearchBoxes.PNG)
 
 As the user enters information in the filters, the table of data on the right side is filtered to match the user criteria. The image below shows the filtered table after the user enters "ca" for the state and "1/4/2010" as the date.
-![FilteredData](insert link to png here after uploading to GitHub)
+![FilteredData](https://github.com/SG314159/UFOs/blob/main/static/images/filteredData.PNG)
 
 ## Summary
 The biggest drawback of this design is that the information entered by the user to filter the data comes in as a string. This leaves a lot of room for incorrect data entry or just misleading results due to spelling errors, capitalization, etc. It can also be overwhelming if the search results are long and the user needs to reorganize the information while viewing it.
